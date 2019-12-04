@@ -2,10 +2,18 @@ package com.company;
 
 public class Customer {
 
-    String ssn;
-    String Name;
-    String address;
-    String telephoneNumber;
+    private String ssn;
+    private String Name;
+    private String address;
+    private String telephoneNumber;
+
+    public Customer() {
+        this.telephoneNumber = getTelephoneNumber();
+        this.address = getAddress();
+        this.ssn = getSsn();
+        this.Name = getName();
+
+    }
 
     public String getSsn() {
         return ssn;
@@ -19,8 +27,8 @@ public class Customer {
         return Name;
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setName(String Name) {
+        this.Name = Name;
     }
 
     public String getAddress() {
@@ -39,10 +47,14 @@ public class Customer {
         this.telephoneNumber = telephoneNumber;
     }
 
-    public Customer(String ssn, String name, String address, String telephoneNumber) {
-        this.ssn = ssn;
-        Name = name;
-        this.address = address;
-        this.telephoneNumber = telephoneNumber;
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "ssn='" + ssn + '\'' +
+                ", Name='" + Name + '\'' +
+                ", address='" + address + '\'' +
+                ", telephoneNumber='" + telephoneNumber + '\'' +
+                '}';
+
     }
 }

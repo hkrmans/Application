@@ -13,6 +13,7 @@ public class Main {
 
     Scanner input = new Scanner(System.in);
     ArrayList<String> customerList = new ArrayList<>();
+    Customer object = new Customer();
     int choice;
 
     public void runProgram() {
@@ -130,11 +131,24 @@ public class Main {
     }
 
     private void AddCustomer() {
-
+        System.out.println("Enter customers full name: ");
+        object.setName(input.nextLine());
+        System.out.println("Enter customers address: ");
+        object.setAddress(input.nextLine());
+        System.out.println("Enter customers ssn: ");
+        object.setSsn(input.nextLine());
+        System.out.println("Enter customers telephone number: ");
+        object.setTelephoneNumber(input.nextLine());
+        System.out.println("");
+        customerList.add(String.valueOf(object));
     }
 
     private void RemoveCustomer() {
-
+        int index = 0;
+        for (String s : customerList)
+            System.out.println((index++) + ": " + s);
+        System.out.println("Which customer do you want to remove?: ");
+        customerList.remove(input.nextInt());
     }
 
     private void ViewBooking() {
