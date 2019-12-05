@@ -1,9 +1,13 @@
 package com.company;
 
+import javax.naming.Name;
+import javax.xml.namespace.QName;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Main {
+
 
     public static void main(String[] args) {
 
@@ -12,12 +16,10 @@ public class Main {
     }
 
     Scanner input = new Scanner(System.in);
-    ArrayList<String> customerList = new ArrayList<String>();
-
+    ArrayList<String> customerList = new ArrayList<>();
+    //Skapade objec för att kalla på constructorn i customer, Martin
     Customer object = new Customer();
-    int roomNumber = 0;
     int choice;
-    ArrayList<Room> roomList = new ArrayList<Room>();
 
     public void runProgram() {
         do {
@@ -73,8 +75,6 @@ public class Main {
                 case 15:
                     EditCustomerInfo();
                     break;
-                default:
-                    System.out.println("Enter a valid number!");
             }
         } while (choice != 16);
 
@@ -130,15 +130,11 @@ public class Main {
     }
 
     private void AvailableRooms() {
-        System.out.println("List of available rooms");
-        for(Room room : roomList) {
-            if(!room.isBooked()) {
-                System.out.println(room.getRoomNumber());
-            }
-        }
+
     }
 
     private void AddCustomer() {
+        //Ändrade så objectet skickar namnet till customer class istället för lokala variabler i main class, Martin
         System.out.println("Enter customers full name: ");
         object.setName(input.nextLine());
         System.out.println("Enter customers address: ");
@@ -149,18 +145,22 @@ public class Main {
         object.setTelephoneNumber(input.nextLine());
         System.out.println("");
         customerList.add(String.valueOf(object));
+
     }
 
     private void RemoveCustomer() {
+        //skapade en remove method med hjälp av att läsa av arrayindex och man får inmata index nr på customer som ska tas bort, Martin.
         int index = 0;
         for (String s : customerList)
             System.out.println((index++) + ": " + s);
         System.out.println("Which customer do you want to remove?: ");
         customerList.remove(input.nextInt());
+
+
     }
 
-    private void ViewBooking() {
 
+    public void ViewBooking() {
 
     }
 
@@ -173,7 +173,6 @@ public class Main {
     }
 
     private void CheckOut() {
-        //room3.setBooked(false);
 
     }
 
@@ -182,29 +181,6 @@ public class Main {
     }
 
     private void AddRoom() {
-
-
-
-        System.out.println(" What is the room number?");
-        System.out.println("|--------------------------|");
-        int roomNumber = input.nextInt();
-        System.out.println("How many beds are there in the room?");
-        int numberOfBeds = input.nextInt();
-        System.out.println("Does the room have a balcony? 1: yes, 2: no");
-        int balcony = input.nextInt();
-        boolean hasBalcony = false;
-        if( balcony == 1) {
-            hasBalcony = true;
-        } else {
-            hasBalcony = false;
-        }
-        System.out.println("What is the price per night?");
-        double price = input.nextDouble();
-        boolean booked = false;
-
-        Room room = new Room(roomNumber, numberOfBeds, hasBalcony, price, booked);
-        roomList.add(room);
-
 
     }
 
@@ -224,4 +200,5 @@ public class Main {
 
     }
 }
+
 

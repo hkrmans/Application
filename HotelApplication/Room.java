@@ -1,13 +1,11 @@
 package com.company;
 
 public class Room {
-
     int roomNumber;
     int numberOfBeds;
     boolean hasBalcony;
     double pricePerNight;
     boolean isBooked;
-    int peopleAmount;
 
     public int getRoomNumber() {
         return roomNumber;
@@ -55,5 +53,16 @@ public class Room {
         this.hasBalcony = hasBalcony;
         this.pricePerNight = pricePerNight;
         this.isBooked = isBooked;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "roomNumber=" + roomNumber +
+                ", numberOfBeds=" + numberOfBeds +
+                ", hasBalcony=" + hasBalcony +
+                ", pricePerNight=" + pricePerNight +
+                ", isBooked=" + isBooked +
+                '}';
     }
 }

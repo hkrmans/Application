@@ -3,12 +3,10 @@ package com.company;
 import java.util.Date;
 
 public class Booking {
-
     int bookingId;
     Date checkInDate;
     Date checkOutDate;
     double totalPrice;
-    Room room;
 
     public int getBookingId() {
         return bookingId;

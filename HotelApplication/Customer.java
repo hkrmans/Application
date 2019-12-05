@@ -2,11 +2,10 @@ package com.company;
 
 public class Customer {
 
-    private String ssn;
-    private String Name;
-    private String address;
-    private String telephoneNumber;
-    private Booking booking;
+    String ssn;
+    String Name;
+    String address;
+    String telephoneNumber;
 
     public Customer() {
         this.telephoneNumber = getTelephoneNumber();
@@ -14,10 +13,6 @@ public class Customer {
         this.ssn = getSsn();
         this.Name = getName();
 
-    }
-
-    public void addBooking(Booking booking) {
-        this.booking = booking;
     }
 
     public String getSsn() {
@@ -36,19 +31,23 @@ public class Customer {
         this.Name = Name;
     }
 
-    public String getAddress() {
+    public String getAddress()
+    {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(String address)
+    {
         this.address = address;
     }
 
-    public String getTelephoneNumber() {
+    public String getTelephoneNumber()
+    {
         return telephoneNumber;
     }
 
-    public void setTelephoneNumber(String telephoneNumber) {
+    public void setTelephoneNumber(String telephoneNumber)
+    {
         this.telephoneNumber = telephoneNumber;
     }
 
@@ -60,6 +59,6 @@ public class Customer {
                 ", address='" + address + '\'' +
                 ", telephoneNumber='" + telephoneNumber + '\'' +
                 '}';
-
     }
 }
+
