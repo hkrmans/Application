@@ -1,6 +1,9 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Room {
+    ArrayList<Room> roomList = new ArrayList<Room>();
 
    private int roomNumber;
    private int numberOfBeds;

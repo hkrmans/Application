@@ -62,21 +62,24 @@ public class Main {
                     AddRoom();
                     break;
                 case 12:
-                    EditRoom();
+                    removeRoom();
                     break;
                 case 13:
-                    ViewCustomerInfo();
+                    EditRoom();
                     break;
                 case 14:
-                    BookingInfo();
+                    ViewCustomerInfo();
                     break;
                 case 15:
+                    BookingInfo();
+                    break;
+                case 16:
                     EditCustomerInfo();
                     break;
                 default:
                     System.out.println("Enter a valid number!");
             }
-        } while (choice != 16);
+        } while (choice != 17);
 
 
     }
@@ -214,6 +217,14 @@ s
         roomList.add(room);
 
 
+
+    }
+    private  void removeRoom(){
+        int index = 0;
+        for (Room s : roomList)
+            System.out.println((index++) + ": " + s);
+        System.out.println("Which room do you want to remove?: ");
+        roomList.remove(input.nextInt());
 
     }
 
