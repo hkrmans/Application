@@ -2,12 +2,12 @@ package com.company;
 
 public class Room {
 
-    int roomNumber;
-    int numberOfBeds;
-    boolean hasBalcony;
-    double pricePerNight;
-    boolean isBooked;
-    int peopleAmount;
+   private int roomNumber;
+   private int numberOfBeds;
+   private boolean hasBalcony;
+   private double pricePerNight;
+   private boolean isBooked;
+   private int peopleAmount;
 
     public int getRoomNumber() {
         return roomNumber;
@@ -55,5 +55,18 @@ public class Room {
         this.hasBalcony = hasBalcony;
         this.pricePerNight = pricePerNight;
         this.isBooked = isBooked;
+    }
+
+    @Override
+    public String toString() {
+        return "\n" + "<<Booking information>>" + "\n" +
+                "Room number: " + roomNumber + "\n" +
+                "Number of beds: " + numberOfBeds + "\n" +
+                "Has balcony: " + hasBalcony + "\n" +
+                "Price per night: " + pricePerNight + "kr" + "\n" +
+                "Is booked: " + isBooked + "\n" +
+                "How many in the room: " + peopleAmount + "\n" +
+                "_____________________________________________" +"\n" ;
+
     }
 }

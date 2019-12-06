@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class Booking {
 
-    int bookingId;
-    Date checkInDate;
-    Date checkOutDate;
-    double totalPrice;
+   private int bookingId;
+   private Date checkInDate;
+    private Date checkOutDate;
+    private double totalPrice;
     Room room;
 
     public int getBookingId() {

@@ -131,10 +131,20 @@ public class Main {
 
     private void AvailableRooms() {
         System.out.println("List of available rooms");
+
         for(Room room : roomList) {
-            if(!room.isBooked()) {
-                System.out.println(room.getRoomNumber());
-            }
+
+           // if(!room.isBooked()) {
+
+               /* System.out.println("Room number: " + room.getRoomNumber());
+                System.out.println("Balcony: " + room.isHasBalcony());
+                System.out.println("Price per night: " + room.getPricePerNight());
+                System.out.println("Available: " + room.isBooked());
+                int index = 0;
+                for (Room s : roomList);
+s
+                */
+            System.out.println(room);
         }
     }
 
@@ -184,9 +194,7 @@ public class Main {
     private void AddRoom() {
 
 
-
         System.out.println(" What is the room number?");
-        System.out.println("|--------------------------|");
         int roomNumber = input.nextInt();
         System.out.println("How many beds are there in the room?");
         int numberOfBeds = input.nextInt();
@@ -204,6 +212,7 @@ public class Main {
 
         Room room = new Room(roomNumber, numberOfBeds, hasBalcony, price, booked);
         roomList.add(room);
+
 
 
     }
