@@ -127,7 +127,10 @@ public class logic {
 
     private void RoomWithSpecifications() {
 
+        for(Room p : roomList) {
+            System.out.println(p);
 
+        }
     }
 
     private void AvailableRooms() {
