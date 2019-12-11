@@ -3,7 +3,6 @@ package com.company;
 import java.util.ArrayList;
 
 public class Room {
-    ArrayList<Room> roomList = new ArrayList<Room>();
 
    private int roomNumber;
    private int numberOfBeds;
@@ -33,7 +32,7 @@ public class Room {
     }
 
     public void setHasBalcony(boolean hasBalcony) {
-        this.hasBalcony = hasBalcony;
+        this.hasBalcony = this.hasBalcony;
     }
 
     public double getPricePerNight() {
