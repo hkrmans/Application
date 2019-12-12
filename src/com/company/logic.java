@@ -8,11 +8,12 @@ public class logic {
 
     Scanner input = new Scanner(System.in);
     ArrayList<String> customerList = new ArrayList<String>();
-
     Customer object = new Customer();
+
     int roomNumber = 0;
     int choice;
     ArrayList<Room> roomList = new ArrayList<Room>();
+
 
     public void runProgram() {
         do {
@@ -121,7 +122,7 @@ public class logic {
     private void ListOfCustomers() {
         int index = 0;
         for (String s : customerList)
-            System.out.println((index++) + ": " + s);
+            System.out.println((index++) + 1 + ": " + s);
 
     }
 
@@ -153,22 +154,43 @@ s
     }
 
     private void AddCustomer() {
+       String Name = "";
         System.out.println("Enter customers full name: ");
-        object.setName(input.nextLine());
+        Name = object.setName(input.nextLine());
+
+        while (Name.isEmpty()) {
+            System.out.println("thats not correct, enter customers full name: ");
+            Name = object.setName(input.nextLine());
+        }
+        String address = "";
         System.out.println("Enter customers address: ");
-        object.setAddress(input.nextLine());
+        address = object.setAddress(input.nextLine());
+        while (address.isEmpty()) {
+            System.out.println("thats not correct, enter customers address: ");
+            address = object.setAddress(input.nextLine());
+        }
+        String ssn = "";
         System.out.println("Enter customers ssn: ");
-        object.setSsn(input.nextLine());
+        ssn = object.setSsn(input.nextLine());
+        while (ssn.isEmpty()) {
+            System.out.println("thats not correct, enter customers ssn: ");
+            ssn = object.setSsn(input.nextLine());
+        }
+        String telephoneNumber = "";
         System.out.println("Enter customers telephone number: ");
-        object.setTelephoneNumber(input.nextLine());
-        System.out.println("");
+        telephoneNumber = object.setTelephoneNumber(input.nextLine());
+        while (telephoneNumber.isEmpty()) {
+            System.out.println("thats not correct, enter customers telephoneNumber: ");
+            telephoneNumber = object.setTelephoneNumber(input.nextLine());
+        }
+            System.out.println("");
         customerList.add(String.valueOf(object));
     }
 
-    private void RemoveCustomer() {
+    private void RemoveCustomer(){
         int index = 0;
         for (String s : customerList)
-            System.out.println((index++) + ": " + s);
+            System.out.println((index++)  +": " + s);
         System.out.println("Which customer do you want to remove?: ");
         customerList.remove(input.nextInt());
     }

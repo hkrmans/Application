@@ -24,40 +24,44 @@ public class Customer {
         return ssn;
     }
 
-    public void setSsn(String ssn) {
+    public String setSsn(String ssn) {
         this.ssn = ssn;
+        return ssn;
     }
 
     public String getName() {
         return Name;
     }
 
-    public void setName(String Name) {
+    public String setName(String Name) {
         this.Name = Name;
+        return Name;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public String setAddress(String address) {
         this.address = address;
+        return address;
     }
 
     public String getTelephoneNumber() {
         return telephoneNumber;
     }
 
-    public void setTelephoneNumber(String telephoneNumber) {
+    public String setTelephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
+        return telephoneNumber;
     }
 
     @Override
     public String toString() {
         return
                 ">> Customer infomration <<" + "\n" +
-                "Social security number: " + ssn + "\n" +
-                "Name: " + Name + "\n" +
+                        "Name: " + Name + "\n" +
+                        "Social security number: " + ssn + "\n" +
                 "Address: " + address + "\n" +
                 "Telephonenumber: " + telephoneNumber + "\n" +
                 "________________________________________";
