@@ -18,6 +18,12 @@ public class logic {
 
 
     public void runProgram() {
+        Room room1 = new Room(1,2,true,699,false);
+        Room room2 = new Room(2,4,false,999,false);
+        Room room3 = new Room(3,6,false,1299,false);
+        roomList.add(room1);
+        roomList.add(room2);
+        roomList.add(room3);
         do {
             printMenu();
             System.out.println("Enter your choice: ");
@@ -299,13 +305,13 @@ s
         System.out.println("Which room do you want to edit?: ");
         int elementNumber = Integer.parseInt(input.nextLine());
 
-        System.out.println("Whats is the room number?: ");
+        System.out.println("This room current number: " + "[" + roomList.get(elementNumber).getRoomNumber() + "] | " + "Whats is the room number?: ");
         int newRoomNumber = Integer.parseInt(input.nextLine());
         roomList.get(elementNumber).setRoomNumber(newRoomNumber);
-        System.out.println("How many beds?: ");
+        System.out.println("This room has current beds: " + "[" + roomList.get(elementNumber).getNumberOfBeds() + "] | " + "How many beds?: ");
         int newNumberOfBeds = Integer.parseInt(input.nextLine());
         roomList.get(elementNumber).setNumberOfBeds(newNumberOfBeds);
-        System.out.println("Does the room have a balcony? 1. Yes 2. No");
+        System.out.println("This room has current balcony: " + "[" + roomList.get(elementNumber).isHasBalcony() + "] | " + "Does the room have a balcony? 1. Yes 2. No");
         int newBalcony = Integer.parseInt(input.nextLine());
         boolean hasBalcony = false;
         if( newBalcony == 1) {
@@ -315,7 +321,7 @@ s
         }
         roomList.get(elementNumber).setHasBalcony(hasBalcony);
 
-        System.out.println("What is the price per night?: ");
+        System.out.println("This room current price per night: " + "[" + roomList.get(elementNumber).getPricePerNight() + "] |" + "What is the price per night?: ");
         int newPricePerNight = input.nextInt();
         roomList.get(elementNumber).setPricePerNight(newPricePerNight);
 
