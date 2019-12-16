@@ -200,14 +200,23 @@ s
 
     private void ViewBooking() {
         if (booked==true) {
-            System.out.println(roomNumber + Name);
+            System.out.println("Room number "+roomNumber+" is booked for mr/mrs "+ object.getName());
         }
 
     }
 
     private void SearchForBooking() {
+        System.out.println("Search for a booking by customers name: ");
+        Name=input.nextLine();
+        if (booked==true) {
+            System.out.println("Customer checked in room number " + roomNumber);
+        }else{
+            System.out.println("No Booking made for customer");
+        }
 
     }
+
+
 
     private void CheckIn() {
         System.out.println("Which room would you like to book?");
@@ -231,10 +240,11 @@ s
 
     private void CheckOut() {
         if (booked == true) {
-            System.out.println(roomNumber);
+            System.out.println("Busy rooms "+roomNumber);
             System.out.println("Check out from room number: ");
             roomNumber = input.nextInt();
             roomList.get(roomNumber).setBooked(false);
+            System.out.println("Room "+roomNumber+" is now empty");
             System.out.println("Checkout completed, Thank you for your stay, Welcome back!");
         } else {
             System.out.println("No customer checked IN");
