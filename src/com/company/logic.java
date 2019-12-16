@@ -12,6 +12,8 @@ public class logic {
 
     int roomNumber = 0;
     int choice;
+    boolean booked=false;
+    String Name;
     ArrayList<Room> roomList = new ArrayList<Room>();
 
 
@@ -154,7 +156,7 @@ s
     }
 
     private void AddCustomer() {
-       String Name = "";
+        Name = "";
         System.out.println("Enter customers full name: ");
         Name = object.setName(input.nextLine());
 
@@ -196,7 +198,9 @@ s
     }
 
     private void ViewBooking() {
-
+        if (booked==true) {
+            System.out.println(roomNumber + Name);
+        }
 
     }
 
@@ -205,12 +209,35 @@ s
     }
 
     private void CheckIn() {
+        System.out.println("Which room would you like to book?");
+
+        for (Room room : roomList) {
+            System.out.println(room);
+            System.out.println("Enter room number here: ");
+        }
+        roomNumber = input.nextInt();
+        booked = true;
+        roomList.get(roomNumber).setBooked(true);
+
+        int index = 0;
+        for (String s : customerList)
+            System.out.println((index++) + 1 + ": " + s);
+        System.out.println("Who would you like to book the room for? Please enter name: ");
+        Name = input.nextLine();
+        System.out.println("Room number: " + roomNumber + " has been booked for mrs/mr " + Name);
 
     }
 
     private void CheckOut() {
-        //room3.setBooked(false);
+        if (booked == true) {
+            System.out.println(roomNumber);
+            System.out.println("Check out from room number: ");
+            roomNumber = input.nextInt();
+            roomList.get(roomNumber).setBooked(false);
+        } else {
+            System.out.println("No customer checked IN");
 
+        }
     }
 
     private void SaveBooking() {
@@ -221,7 +248,7 @@ s
 
 
         System.out.println(" What is the room number?");
-        int roomNumber = input.nextInt();
+         roomNumber = input.nextInt();
         System.out.println("How many beds are there in the room?");
         int numberOfBeds = input.nextInt();
         System.out.println("Does the room have a balcony? 1: yes, 2: no");
@@ -234,7 +261,7 @@ s
         }
         System.out.println("What is the price per night?");
         double price = input.nextDouble();
-        boolean booked = false;
+        booked = false;
 
         Room room = new Room(roomNumber, numberOfBeds, hasBalcony, price, booked);
         roomList.add(room);
