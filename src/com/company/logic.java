@@ -177,6 +177,7 @@ s
         while (ssn.isEmpty()) {
             System.out.println("thats not correct, enter customers ssn: ");
             ssn = object.setSsn(input.nextLine());
+
         }
         String telephoneNumber = "";
         System.out.println("Enter customers telephone number: ");
@@ -224,7 +225,7 @@ s
             System.out.println((index++) + 1 + ": " + s);
         System.out.println("Who would you like to book the room for? Please enter name: ");
         Name = input.nextLine();
-        System.out.println("Room number: " + roomNumber + " has been booked for mrs/mr " + Name);
+        System.out.println("Room number: " + roomNumber + " has been booked for mrs/mr " + object.getName());
 
     }
 
@@ -234,6 +235,7 @@ s
             System.out.println("Check out from room number: ");
             roomNumber = input.nextInt();
             roomList.get(roomNumber).setBooked(false);
+            System.out.println("Checkout completed, Thank you for your stay, Welcome back!");
         } else {
             System.out.println("No customer checked IN");
 

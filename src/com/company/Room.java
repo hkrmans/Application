@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Room {
 
-   private int roomNumber;
-   private int numberOfBeds;
-   private boolean hasBalcony;
-   private double pricePerNight;
-   private boolean isBooked;
-   private int peopleAmount;
+    private int roomNumber;
+    private int numberOfBeds;
+    private boolean hasBalcony;
+    private double pricePerNight;
+    private boolean isBooked;
+    private int peopleAmount;
 
     public int getRoomNumber() {
         return roomNumber;
@@ -67,8 +67,7 @@ public class Room {
                 "Has balcony: " + hasBalcony + "\n" +
                 "Price per night: " + pricePerNight + "kr" + "\n" +
                 "Is booked: " + isBooked + "\n" +
-                "How many in the room: " + peopleAmount + "\n" +
-                "_____________________________________________" +"\n" ;
+                "_____________________________________________" + "\n";
 
     }
 }
