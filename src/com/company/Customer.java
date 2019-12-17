@@ -3,16 +3,24 @@ package com.company;
 public class Customer {
 
     private String ssn;
-    private String Name;
+    private String name;
     private String address;
     private String telephoneNumber;
     private Booking booking;
 
-    public Customer() {
-        this.telephoneNumber = getTelephoneNumber();
-        this.address = getAddress();
-        this.ssn = getSsn();
-        this.Name = getName();
+    public Customer(String ssn, String name, String address, String telephoneNumber) {
+        this.ssn = ssn;
+        this.name = name;
+        this.address = address;
+        this.telephoneNumber = telephoneNumber;
+    }
+
+    public Customer(){
+        this.ssn = ssn;
+        this.name = name;
+        this.address = address;
+        this.telephoneNumber = telephoneNumber;
+        this.booking = booking;
 
     }
 
@@ -30,11 +38,11 @@ public class Customer {
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public String setName(String Name) {
-        this.Name = Name;
+        this.name = Name;
         return Name;
     }
 
@@ -59,8 +67,8 @@ public class Customer {
     @Override
     public String toString() {
         return
-                ">> Customer infomration <<" + "\n" +
-                        "Name: " + Name + "\n" +
+                ">> Customer information <<" + "\n" +
+                        "Name: " + name + "\n" +
                         "Social security number: " + ssn + "\n" +
                 "Address: " + address + "\n" +
                 "Telephonenumber: " + telephoneNumber + "\n" +
