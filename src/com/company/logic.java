@@ -54,9 +54,37 @@ public class logic {
 
 
     private void editMenu() {
-
-        int choice = 0;
+        int choice;
         do {
+            printMenu();
+
+            System.out.println("--Make your choice--");
+            System.out.println(">>");
+
+
+            choice = input.nextInt();
+
+
+            switch (choice) {
+                case 1:
+                    CustomerLogg();
+                    break;
+                case 2:
+                    RoomLogg();
+                    break;
+                case 3:
+                    BookLoog();
+                    break;
+                default:
+                    System.out.println("Invalid option, choose between 1-3");
+                    break;
+
+            }
+        } while (choice != 4);
+
+
+
+        /*do {
             printMenu();
             System.out.println("Enter your choice: ");
             System.out.print(">> ");
@@ -116,12 +144,18 @@ public class logic {
                     System.out.println("Enter a valid number!");
                     break;
             }
-        } while (choice != 17);
+        } while (choice != 17);*/
 
     }
 
     private void printMenu() {
-        System.out.println("---- Hello and Welcome to our Hotel Application ----");
+        System.out.println("<<Login succesfull>>");
+        System.out.println("-----------------------");
+        System.out.println("| 1. CustomerLogg     |");
+        System.out.println("| 2: RoomLogg         |");
+        System.out.println("| 3. BookingLogg      |");
+        System.out.println("-----------------------");
+        /* System.out.println("---- Hello and Welcome to our Hotel Application ----");
         System.out.println("----------------------------------------------------");
         System.out.println("Please select one of the options.");
         System.out.println("------------------------------------------------");
@@ -157,8 +191,124 @@ public class logic {
         System.out.println("------------------------------------------------");
         System.out.println("16: Edit information for a specific customer");
         System.out.println("------------------------------------------------");
+    */
     }
 
+    private void CustomerLogg() {
+        int choice;
+        do {
+            System.out.println("------Make your choice--------- ");
+            System.out.println("| 1. View All Customers        |");
+            System.out.println("| 2. Add a Customer            |");
+            System.out.println("| 3. Remove a Customer         |");
+            System.out.println("| 4. Edit Customer information |");
+            System.out.println("| 5. Exit this Menu            |");
+            System.out.println("--------------------------------");
+            choice = input.nextInt();
+            switch (choice) {
+                case 1:
+                    ListOfCustomers();
+                    break;
+                case 2:
+                    AddCustomer();
+                    break;
+                case 3:
+                    RemoveCustomer();
+                    break;
+                case 4:
+                    EditCustomerInfo();
+                    break;
+                case 5:
+                    editMenu();
+                    break;
+                default:
+                    System.out.println("Wrong input, Enter your choice 1-4");
+                    break;
+            }
+        } while (choice != 5);
+    }
+
+    private void RoomLogg() {
+        int choice;
+        do {
+
+
+            System.out.println("----------Make your choice-----------");
+            System.out.println("| 1. Add a Room                     |");
+            System.out.println("| 2. Edit Room information          |");
+            System.out.println("| 3. View Available Rooms           |");
+            System.out.println("| 4. View Rooms with Specifications |");
+            System.out.println("| 5. Remove a Room                  |");
+            System.out.println("| 6. Exit this menu                 |");
+            System.out.println("-------------------------------------");
+            choice = input.nextInt();
+            switch (choice) {
+                case 1:
+                    AddRoom();
+                    break;
+                case 2:
+                    EditRoom();
+                    break;
+                case 3:
+                    AvailableRooms();
+                    break;
+                case 4:
+                    RoomWithSpecifications();
+                    break;
+                case 5:
+                    removeRoom();
+                    break;
+                case 6:
+                    editMenu();
+                default:
+                    System.out.println("Invalid option, try again 1-6");
+            }
+        } while (choice != 7);
+    }
+
+    private void BookLoog() {
+        int choice;
+        do {
+            System.out.println("---------Enter your choice-----------");
+            System.out.println("-------------------------------------");
+            System.out.println("-------------------------------------");
+            System.out.println("| 1. Check in a Customer            |");
+            System.out.println("| 2. Check out a Customer           |");
+            System.out.println("| 3. View a Booking                 |");
+            System.out.println("| 4. Search for a specific Booking  |");
+            System.out.println("| 5. Save a Booking                 |");
+            System.out.println("| 6. Booking Information            |");
+            System.out.println("| 7. Exit this menu                 |");
+            System.out.println("-------------------------------------");
+            choice = input.nextInt();
+            switch (choice) {
+                case 1:
+                    CheckIn();
+                    break;
+                case 2:
+                    CheckOut();
+                    break;
+                case 3:
+                    ViewBooking();
+                    break;
+                case 4:
+                    SearchForBooking();
+                    break;
+                case 5:
+                    SaveBooking();
+                    break;
+                case 6:
+                    BookingInfo();
+                    break;
+                case 7:
+                    editMenu();
+                    break;
+                default:
+                    System.out.println("Invalid option. Try again 1-7");
+                    break;
+            }
+        } while (choice != 7);
+    }
 
     private void ListOfCustomers() {
         int index = 0;
@@ -228,7 +378,7 @@ s
     }
 
     private void RemoveCustomer() {
-        int index = 1;
+        int index = 0;
         for (Customer s : customerList)
             System.out.println((index++) + ": " + s);
         System.out.println("Which customer do you want to remove?: ");
@@ -301,7 +451,6 @@ s
     private void SaveBooking() {
 
 
-
     }
 
     private void AddRoom() {
@@ -330,7 +479,7 @@ s
 
     private void removeRoom() {
 
-        int index = 1;
+        int index = 0;
         for (Room s : roomList)
             System.out.println((index++) + ": " + s);
         System.out.println("Which room do you want to remove?: ");
@@ -341,7 +490,7 @@ s
     private void EditRoom() {
         int select;
 
-        int index = 1;
+        int index = 0;
         for (Room d : roomList) {
             System.out.println((index++) + ": " + d);
 
@@ -419,7 +568,7 @@ s
         }
 
         System.out.println("Which customer do you want to edit?");
-        int customerNumber = Integer.parseInt(input.nextLine());
+        int customerNumber = Integer.parseInt(String.valueOf(input.nextInt()));
 
         do {
             System.out.println("What do you want to edit?: ");
@@ -430,7 +579,7 @@ s
             System.out.println("4. Phone Number");
             System.out.println("5. Exit");
 
-            select = Integer.parseInt(input.nextLine());
+            select = Integer.parseInt(String.valueOf(input.nextInt()));
             switch (select) {
                 case 1: {
                     System.out.println("This customers current name: " + "[" + customerList.get(customerNumber).getName() + "] | " + "What is the new Name?: ");
