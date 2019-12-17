@@ -200,13 +200,7 @@ public class logic {
                     break;
 
             }
-<<<<<<< HEAD
-        } while (choice != 17);*/
-=======
-        } while (choice != 5);
->>>>>>> d17e53b7e2f2eef1dc0bba1d2734fc9e2475b2cc
 
-    }
 
     private void printMenu() {
         System.out.println("<<Login succesfull>>");
