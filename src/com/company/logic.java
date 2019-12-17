@@ -39,8 +39,7 @@ public class logic {
             switch (choice) {
                 case 1:
                     editMenu();
-                case 2:
-                    customerEditMenu();
+
                 default:
                     System.out.println("Enter a valid number!");
             }
@@ -155,51 +154,11 @@ public class logic {
             }
 
         } while (choice != 18);
-
+*/
     }
 
-    private void printCustomerMenu() {
-        System.out.println("---- Hello and Welcome to our Hotel Application ----");
-        System.out.println("------------------------------------------------");
-        System.out.println("1: View available rooms");
-        System.out.println("------------------------------------------------");
-        System.out.println("2: View booking history");
-        System.out.println("------------------------------------------------");
-        System.out.println("3: Make a new booking");
-        System.out.println("------------------------------------------------");
-        System.out.println("4: Edit your info");
-        System.out.println("------------------------------------------------");
-        System.out.println("5: Exit to log in menu");
-        System.out.println("------------------------------------------------");
-    }
 
-    private void customerEditMenu() {
-        int choice = 0;
-        do {
-            printCustomerMenu();
-            System.out.println("Enter your choice: ");
-            System.out.print(">> ");
-            choice = input.nextInt();
-            input.nextLine();
 
-            switch (choice) {
-                case 1:
-                    AvailableRooms();
-                    break;
-                case 2:
-                    ViewBookingHistory();
-                    break;
-                case 3:
-                    MakeBooking();
-                    break;
-                case 4:
-                    EditCustomerInfo();
-                    break;
-                default:
-                    System.out.println("Enter a valid number!");
-                    break;
-
-            }
 
 
     private void printMenu() {
@@ -245,8 +204,7 @@ public class logic {
         System.out.println("------------------------------------------------");
         System.out.println("16: Edit information for a specific customer");
         System.out.println("------------------------------------------------");
-<<<<<<< HEAD
-    */
+*/
     }
 
     private void CustomerLogg() {
@@ -363,14 +321,6 @@ public class logic {
                     break;
             }
         } while (choice != 7);
-=======
-        System.out.println("17: Make a booking");
-        System.out.println("------------------------------------------------");
-    }
-
-    private void MakeBooking() {
-
->>>>>>> d17e53b7e2f2eef1dc0bba1d2734fc9e2475b2cc
     }
 
     private void ListOfCustomers() {
