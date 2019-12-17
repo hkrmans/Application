@@ -36,20 +36,26 @@ public class logic {
             System.out.println("Make your choice: ");
             System.out.println(">>");
             choice = Integer.parseInt(input.nextLine());
-            if (choice == 1) {
-                editMenu();
+            switch (choice) {
+                case 1:
+                    editMenu();
+                case 2:
+                    customerEditMenu();
+                default:
+                    System.out.println("Enter a valid number!");
             }
-        } while (choice != 2);
+        } while (choice != 3);
 
     }
 
     private void printLogInMenu() {
 
         System.out.println("Login Menu");
-        System.out.println("--------------------");
-        System.out.println("| 1.login          |");
-        System.out.println("| 2.Exit           |");
-        System.out.println("--------------------");
+        System.out.println("-------------------------");
+        System.out.println("| 1. Login as employee  |");
+        System.out.println("| 2. Login as customer  |");
+        System.out.println("| 2.Exit                |");
+        System.out.println("-------------------------");
     }
 
 
@@ -140,11 +146,65 @@ public class logic {
                 case 16:
                     EditCustomerInfo();
                     break;
+                case 17:
+                    MakeBooking();
+                    break;
                 default:
                     System.out.println("Enter a valid number!");
                     break;
             }
+
+        } while (choice != 18);
+
+    }
+
+    private void printCustomerMenu() {
+        System.out.println("---- Hello and Welcome to our Hotel Application ----");
+        System.out.println("------------------------------------------------");
+        System.out.println("1: View available rooms");
+        System.out.println("------------------------------------------------");
+        System.out.println("2: View booking history");
+        System.out.println("------------------------------------------------");
+        System.out.println("3: Make a new booking");
+        System.out.println("------------------------------------------------");
+        System.out.println("4: Edit your info");
+        System.out.println("------------------------------------------------");
+        System.out.println("5: Exit to log in menu");
+        System.out.println("------------------------------------------------");
+    }
+
+    private void customerEditMenu() {
+        int choice = 0;
+        do {
+            printCustomerMenu();
+            System.out.println("Enter your choice: ");
+            System.out.print(">> ");
+            choice = input.nextInt();
+            input.nextLine();
+
+            switch (choice) {
+                case 1:
+                    AvailableRooms();
+                    break;
+                case 2:
+                    ViewBookingHistory();
+                    break;
+                case 3:
+                    MakeBooking();
+                    break;
+                case 4:
+                    EditCustomerInfo();
+                    break;
+                default:
+                    System.out.println("Enter a valid number!");
+                    break;
+
+            }
+<<<<<<< HEAD
         } while (choice != 17);*/
+=======
+        } while (choice != 5);
+>>>>>>> d17e53b7e2f2eef1dc0bba1d2734fc9e2475b2cc
 
     }
 
@@ -191,6 +251,7 @@ public class logic {
         System.out.println("------------------------------------------------");
         System.out.println("16: Edit information for a specific customer");
         System.out.println("------------------------------------------------");
+<<<<<<< HEAD
     */
     }
 
@@ -308,6 +369,14 @@ public class logic {
                     break;
             }
         } while (choice != 7);
+=======
+        System.out.println("17: Make a booking");
+        System.out.println("------------------------------------------------");
+    }
+
+    private void MakeBooking() {
+
+>>>>>>> d17e53b7e2f2eef1dc0bba1d2734fc9e2475b2cc
     }
 
     private void ListOfCustomers() {
@@ -395,6 +464,14 @@ s
 
          */
 
+    }
+
+    private void ViewBookingHistory() {
+        ArrayList<Booking> yourBookings = new ArrayList<>();
+        for (int i = 0; i <bookingList.size(); i++) {
+
+
+        }
     }
 
     private void SearchForBooking() {
