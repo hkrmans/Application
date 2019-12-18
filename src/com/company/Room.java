@@ -1,17 +1,20 @@
 package com.company;
 
-import java.util.ArrayList;
-
 public class Room {
 
     private int roomNumber;
     private int numberOfBeds;
     private boolean hasBalcony;
     private double pricePerNight;
-    private boolean isBooked;
+    private boolean isBooked = false;
     private int peopleAmount;
 
-    public int getRoomNumber() {
+    public Room() {
+
+    }
+
+
+    public int getRoomNumber(int bookingId) {
         return roomNumber;
     }
 
@@ -32,7 +35,7 @@ public class Room {
     }
 
     public void setHasBalcony(boolean hasBalcony) {
-        this.hasBalcony = this.hasBalcony;
+        this.hasBalcony = hasBalcony;
     }
 
     public double getPricePerNight() {
@@ -47,8 +50,8 @@ public class Room {
         return isBooked;
     }
 
-    public void setBooked(boolean booked) {
-        isBooked = booked;
+    public void setBooked(boolean isBooked) {
+        this.isBooked = isBooked;
     }
 
     public Room(int roomNumber, int numberOfBeds, boolean hasBalcony, double pricePerNight, boolean isBooked) {
@@ -70,4 +73,7 @@ public class Room {
                 "_____________________________________________" + "\n";
 
     }
+
+
 }
+

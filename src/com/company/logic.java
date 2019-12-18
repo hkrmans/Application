@@ -11,8 +11,9 @@ public class logic {
     ArrayList<Customer> customerList = new ArrayList<Customer>();
     ArrayList<Room> roomList = new ArrayList<Room>();
     ArrayList<Booking> bookingList = new ArrayList<>();
-
+    Room ne = new Room();
     Customer object = new Customer();
+    private int BookinId;
 
 
     public void runProgram() {
@@ -158,9 +159,6 @@ public class logic {
     }
 
 
-
-
-
     private void printMenu() {
         System.out.println("<<Login succesfull>>");
         System.out.println("-----------------------");
@@ -235,7 +233,7 @@ public class logic {
                     editMenu();
                     break;
                 default:
-                    System.out.println("Wrong input, Enter your choice 1-4");
+                    System.out.println("Wrong input, Enter your choice 1-5");
                     break;
             }
         } while (choice != 5);
@@ -360,8 +358,8 @@ s
     private void AddCustomer() {
 
         System.out.println("Enter customers full name: ");
+        input.nextLine();
         String name = object.setName(input.nextLine());
-
         while (name.isEmpty()) {
             System.out.println("thats not correct, enter customers full name: ");
             name = object.setName(input.nextLine());
@@ -412,7 +410,7 @@ s
 
     private void ViewBookingHistory() {
         ArrayList<Booking> yourBookings = new ArrayList<>();
-        for (int i = 0; i <bookingList.size(); i++) {
+        for (int i = 0; i < bookingList.size(); i++) {
 
 
         }
@@ -533,7 +531,7 @@ s
             select = Integer.parseInt(input.nextLine());
             switch (select) {
                 case 1: {
-                    System.out.println("This room current number: " + "[" + roomList.get(elementNumber).getRoomNumber() + "] | " + "Whats is the new room number?: ");
+                    System.out.println("This room current number: " + "[" + roomList.get(elementNumber).getRoomNumber(BookinId) + "] | " + "Whats is the new room number?: ");
                     int newRoomNumber = Integer.parseInt(input.nextLine());
                     roomList.get(elementNumber).setRoomNumber(newRoomNumber);
                     break;
@@ -572,66 +570,94 @@ s
 
     private void ViewCustomerInfo() {
 
-
     }
+
 
     private void BookingInfo() {
-
-    }
-
-    private void EditCustomerInfo() {
-
-        int select;
-
+        int BookinId;
         int index = 0;
-        for (Customer s : customerList) {
-            System.out.println((index++) + 1 + ": " + s);
+        Room ne = new Room();
+        System.out.println("wich room do you want to book?");
+        for (Room room : roomList) {
+            System.out.println(room);
+
         }
+            while (true) {
+                System.out.println("Enter roomNumber : Enter -1 for quit");
+                BookinId = input.nextInt();
 
-        System.out.println("Which customer do you want to edit?");
-        int customerNumber = Integer.parseInt(String.valueOf(input.nextInt()));
+                if (BookinId == -1) {
+                    System.out.println("quit");
+                    break;
+                } else {
+                    ne.getRoomNumber(BookinId);
+                    if (!ne.isBooked()) {
+                        System.out.println("Booked succesfully");
+                        ne.setBooked(true);
+                        break;
+                    } else {
+                        System.out.println("Enter the roomNumber again or press -1 to quit");
+                    }
+                }
 
-        do {
-            System.out.println("What do you want to edit?: ");
-
-            System.out.println("1. Name");
-            System.out.println("2. Address");
-            System.out.println("3. SSN");
-            System.out.println("4. Phone Number");
-            System.out.println("5. Exit");
-
-            select = Integer.parseInt(String.valueOf(input.nextInt()));
-            switch (select) {
-                case 1: {
-                    System.out.println("This customers current name: " + "[" + customerList.get(customerNumber).getName() + "] | " + "What is the new Name?: ");
-                    String newName = input.nextLine();
-                    customerList.get(customerNumber).setName(newName);
-                    break;
-                }
-                case 2: {
-                    System.out.println("This customers current address: " + "[" + customerList.get(customerNumber).getAddress() + "] | " + "What is the new address?: ");
-                    String newAddress = input.nextLine();
-                    customerList.get(customerNumber).setAddress(newAddress);
-                    break;
-                }
-                case 3: {
-                    System.out.println("This customers current SSN: " + "[" + customerList.get(customerNumber).getSsn() + "] | " + "What is the new SSN?: ");
-                    String newSsn = input.nextLine();
-                    customerList.get(customerNumber).setSsn(newSsn);
-                    break;
-                }
-                case 4: {
-                    System.out.println("This customers current telephone number: " + "[" + customerList.get(customerNumber).getTelephoneNumber() + "] | " + "What is the new telephone number?: ");
-                    String newTelephoneNumber = input.nextLine();
-                    customerList.get(customerNumber).setTelephoneNumber(newTelephoneNumber);
-                    break;
-                }
-                default:
-                    System.out.println("Enter a valid number!");
-                    break;
             }
 
-        } while (select != 5);
+
+        }
+
+        private void EditCustomerInfo () {
+
+            int select;
+
+            int index = 0;
+            for (Customer s : customerList) {
+                System.out.println((index++) + 1 + ": " + s);
+            }
+
+            System.out.println("Which customer do you want to edit?");
+            int customerNumber = Integer.parseInt(String.valueOf(input.nextInt()));
+
+            do {
+                System.out.println("What do you want to edit?: ");
+
+                System.out.println("1. Name");
+                System.out.println("2. Address");
+                System.out.println("3. SSN");
+                System.out.println("4. Phone Number");
+                System.out.println("5. Exit");
+
+                select = Integer.parseInt(String.valueOf(input.nextInt()));
+                switch (select) {
+                    case 1: {
+                        System.out.println("This customers current name: " + "[" + customerList.get(customerNumber).getName() + "] | " + "What is the new Name?: ");
+                        String newName = input.nextLine();
+                        customerList.get(customerNumber).setName(newName);
+                        break;
+                    }
+                    case 2: {
+                        System.out.println("This customers current address: " + "[" + customerList.get(customerNumber).getAddress() + "] | " + "What is the new address?: ");
+                        String newAddress = input.nextLine();
+                        customerList.get(customerNumber).setAddress(newAddress);
+                        break;
+                    }
+                    case 3: {
+                        System.out.println("This customers current SSN: " + "[" + customerList.get(customerNumber).getSsn() + "] | " + "What is the new SSN?: ");
+                        String newSsn = input.nextLine();
+                        customerList.get(customerNumber).setSsn(newSsn);
+                        break;
+                    }
+                    case 4: {
+                        System.out.println("This customers current telephone number: " + "[" + customerList.get(customerNumber).getTelephoneNumber() + "] | " + "What is the new telephone number?: ");
+                        String newTelephoneNumber = input.nextLine();
+                        customerList.get(customerNumber).setTelephoneNumber(newTelephoneNumber);
+                        break;
+                    }
+                    default:
+                        System.out.println("Enter a valid number!");
+                        break;
+                }
+
+            } while (select != 5);
+        }
     }
-}
 
