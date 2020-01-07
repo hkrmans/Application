@@ -10,7 +10,7 @@ public class logic {
 
     ArrayList<Customer> customerList = new ArrayList<Customer>();
     ArrayList<Room> roomList = new ArrayList<Room>();
-    ArrayList<Booking> bookingList = new ArrayList<>();
+    ArrayList<String> bookingList = new ArrayList<String>();
     Room ne = new Room();
     Customer object = new Customer();
     private int BookinId;
@@ -386,6 +386,7 @@ s
         }
         System.out.println("");
         customerList.add(object);
+
     }
 
     private void RemoveCustomer() {
@@ -468,8 +469,19 @@ s
     }
 
     private void SaveBooking() {
+        //find the room
+        //create a booking object with that room
+        //put that booking obj to the customer booking field
+
+        System.out.println("wich room do you want to book?");
+        for (Room room : roomList) {
+            System.out.println(room);
+        }while (true) {
+            System.out.println("Enter a roomnumber: ");
+            
 
 
+        }
     }
 
     private void AddRoom() {
@@ -574,33 +586,6 @@ s
 
 
     private void BookingInfo() {
-        int BookinId;
-        int index = 0;
-        Room ne = new Room();
-        System.out.println("wich room do you want to book?");
-        for (Room room : roomList) {
-            System.out.println(room);
-
-        }
-            while (true) {
-                System.out.println("Enter roomNumber : Enter -1 for quit");
-                BookinId = input.nextInt();
-
-                if (BookinId == -1) {
-                    System.out.println("quit");
-                    break;
-                } else {
-                    ne.getRoomNumber(BookinId);
-                    if (!ne.isBooked()) {
-                        System.out.println("Booked succesfully");
-                        ne.setBooked(true);
-                        break;
-                    } else {
-                        System.out.println("Enter the roomNumber again or press -1 to quit");
-                    }
-                }
-
-            }
 
 
         }

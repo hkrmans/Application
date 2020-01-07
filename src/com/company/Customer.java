@@ -8,6 +8,19 @@ public class Customer {
     private String telephoneNumber;
     private Booking booking;
 
+    public Customer() {
+
+    }
+
+
+    public Booking getBooking() {
+        return booking;
+    }
+
+    public void setBooking() {
+        this.booking = booking;
+    }
+
     public Customer(String ssn, String name, String address, String telephoneNumber) {
         this.ssn = ssn;
         this.name = name;
@@ -15,18 +28,6 @@ public class Customer {
         this.telephoneNumber = telephoneNumber;
     }
 
-    public Customer(){
-        this.ssn = ssn;
-        this.name = name;
-        this.address = address;
-        this.telephoneNumber = telephoneNumber;
-        this.booking = booking;
-
-    }
-
-    public void addBooking(Booking booking) {
-        this.booking = booking;
-    }
 
     public String getSsn() {
         return ssn;
