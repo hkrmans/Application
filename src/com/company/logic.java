@@ -31,32 +31,123 @@ public class logic {
         customerList.add(customer1);
         customerList.add(customer2);
         customerList.add(customer3);
+        printLogInMenu();
+    }
+    private void CustomerLogIn(){
+        String Username;
+        String Password;
 
-        do {
-            printLogInMenu();
-            System.out.println("Make your choice: ");
-            System.out.println(">>");
-            choice = Integer.parseInt(input.nextLine());
-            switch (choice) {
-                case 1:
-                    editMenu();
+        Password = "321";
+        Username = "Customer";
 
-                default:
-                    System.out.println("Enter a valid number!");
-            }
-        } while (choice != 3);
+        Scanner input1 = new Scanner(System.in);
+        System.out.println("Enter Username : ");
+        String username = input1.next();
+
+        Scanner input2 = new Scanner(System.in);
+        System.out.println("Enter Password : ");
+        String password = input2.next();
+
+        if (username.equals(Username) && password.equals(Password)) {
+
+            System.out.println("Access Granted! Welcome!");
+            LogForCustomer();
+        }
+
+        else if (username.equals(Username)) {
+            System.out.println("Invalid Password!");
+        } else if (password.equals(Password)) {
+            System.out.println("Invalid Username!");
+        } else {
+            System.out.println("Invalid Username & Password!");
+        }
 
     }
 
-    private void printLogInMenu() {
+    private void EmployerLogIn(){
+        String Username;
+        String Password;
 
+        Password = "123";
+        Username = "Admin";
+
+        Scanner input1 = new Scanner(System.in);
+        System.out.println("Enter Username : ");
+        String username = input1.next();
+
+        Scanner input2 = new Scanner(System.in);
+        System.out.println("Enter Password : ");
+        String password = input2.next();
+
+        if (username.equals(Username) && password.equals(Password)) {
+
+            System.out.println("Access Granted! Welcome!");
+            editMenu();
+        }
+
+        else if (username.equals(Username)) {
+            System.out.println("Invalid Password!");
+        } else if (password.equals(Password)) {
+            System.out.println("Invalid Username!");
+        } else {
+            System.out.println("Invalid Username & Password!");
+        }
+
+    }
+
+
+
+
+    private void printLogInMenu() {
+        int choice;
+        do {
         System.out.println("Login Menu");
         System.out.println("-------------------------");
         System.out.println("| 1. Login as employee  |");
         System.out.println("| 2. Login as customer  |");
-        System.out.println("| 3. Exit               |");
         System.out.println("-------------------------");
+            System.out.println("Enter choice: ");
+            choice = input.nextInt();
+            switch (choice) {
+                case 1:
+                    EmployerLogIn();
+                case 2:
+                    CustomerLogIn();
+
+                default:
+                    System.out.println("Invalid option, choose between 1-3");
+                    break;
+            }
+        } while (choice != 3);
     }
+
+    private void LogForCustomer() {
+        int choice;
+        do {
+            System.out.println("------Make your choice--------- ");
+            System.out.println("| 1. View available rooms      |");
+            System.out.println("| 2. Book room                 |");
+            System.out.println("| 3.Exit                       |");
+            System.out.println("--------------------------------");
+            choice = input.nextInt();
+            switch (choice) {
+                case 1:
+                    AvailableRooms();
+                    break;
+                case 2:
+                    CheckIn();
+                case 3:
+                    printLogInMenu();
+
+                default:
+                    System.out.println("Invalid option, choose between 1-3");
+                    break;
+            }
+
+        }while (choice != 4) ;
+
+    }
+
 
 
     private void editMenu() {
@@ -81,12 +172,15 @@ public class logic {
                 case 3:
                     BookLog();
                     break;
+                case 4:
+                    printLogInMenu();
+                    break;
                 default:
                     System.out.println("Invalid option, choose between 1-3");
                     break;
 
             }
-        } while (choice != 4);
+        } while (choice != 5);
     }
 
 
@@ -96,6 +190,7 @@ public class logic {
         System.out.println("| 1. CustomerLogg     |");
         System.out.println("| 2: RoomLogg         |");
         System.out.println("| 3. BookingLogg      |");
+        System.out.println("| 4.Exit              |");
         System.out.println("-----------------------");
     }
 
