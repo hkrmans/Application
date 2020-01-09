@@ -7,7 +7,7 @@ public class Room {
     private boolean hasBalcony;
     private double pricePerNight;
     private boolean isBooked = false;
-    private int peopleAmount;
+    private boolean isChecked = false;
 
     public Room() {
 
@@ -54,6 +54,14 @@ public class Room {
         this.isBooked = isBooked;
     }
 
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.isChecked = checked;
+    }
+
     public Room(int roomNumber, int numberOfBeds, boolean hasBalcony, double pricePerNight, boolean isBooked) {
         this.roomNumber = roomNumber;
         this.numberOfBeds = numberOfBeds;
@@ -64,7 +72,7 @@ public class Room {
 
     @Override
     public String toString() {
-        return "\n" + "<<Booking information>>" + "\n" +
+        return "\n" + "<<Room information>>" + "\n" +
                 "Room number: " + roomNumber + "\n" +
                 "Number of beds: " + numberOfBeds + "\n" +
                 "Has balcony: " + hasBalcony + "\n" +
@@ -76,4 +84,3 @@ public class Room {
 
 
 }
-

@@ -71,9 +71,9 @@ public class Customer {
                 ">> Customer information <<" + "\n" +
                         "Name: " + name + "\n" +
                         "Social security number: " + ssn + "\n" +
-                "Address: " + address + "\n" +
-                "Telephonenumber: " + telephoneNumber + "\n" +
-                "________________________________________";
+                        "Address: " + address + "\n" +
+                        "Telephonenumber: " + telephoneNumber + "\n" +
+                        "________________________________________";
 
     }
 }

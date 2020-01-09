@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class Booking {
 
-   private int bookingId;
-   private Date checkInDate;
+    private int bookingId;
+    private Date checkInDate;
     private Date checkOutDate;
     private double totalPrice;
-    Room room;
+    private Room room;
 
     public int getBookingId() {
         return bookingId;
@@ -42,10 +42,34 @@ public class Booking {
         this.totalPrice = totalPrice;
     }
 
-    public Booking(int bookingId, Date checkInDate, Date checkOutDate, double totalPrice) {
+    public void setRoom(Room room) {
+        this.room = room;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public Booking(int bookingId, double totalPrice) {
         this.bookingId = bookingId;
-        this.checkInDate = checkInDate;
-        this.checkOutDate = checkOutDate;
         this.totalPrice = totalPrice;
+
+    }
+
+//    public Booking(int bookingId, Date checkInDate, Date checkOutDate, double totalPrice) {
+//        this.bookingId = bookingId;
+//        this.checkInDate = checkInDate;
+//        this.checkOutDate = checkOutDate;
+//        this.totalPrice = totalPrice;
+//    }
+
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "bookingId=" + bookingId +
+                ", totalPrice=" + totalPrice +
+                ", room=" + room +
+                '}';
     }
 }
