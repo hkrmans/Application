@@ -1,5 +1,9 @@
 package com.company;
 
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
@@ -33,7 +37,8 @@ public class logic {
         customerList.add(customer3);
         printLogInMenu();
     }
-    private void CustomerLogIn(){
+
+    private void CustomerLogIn() {
         String Username;
         String Password;
 
@@ -52,9 +57,7 @@ public class logic {
 
             System.out.println("Access Granted! Welcome!");
             LogForCustomer();
-        }
-
-        else if (username.equals(Username)) {
+        } else if (username.equals(Username)) {
             System.out.println("Invalid Password!");
         } else if (password.equals(Password)) {
             System.out.println("Invalid Username!");
@@ -64,7 +67,7 @@ public class logic {
 
     }
 
-    private void EmployerLogIn(){
+    private void EmployerLogIn() {
         String Username;
         String Password;
 
@@ -83,9 +86,7 @@ public class logic {
 
             System.out.println("Access Granted! Welcome!");
             editMenu();
-        }
-
-        else if (username.equals(Username)) {
+        } else if (username.equals(Username)) {
             System.out.println("Invalid Password!");
         } else if (password.equals(Password)) {
             System.out.println("Invalid Username!");
@@ -96,16 +97,15 @@ public class logic {
     }
 
 
-
-
     private void printLogInMenu() {
         int choice;
         do {
-        System.out.println("Login Menu");
-        System.out.println("-------------------------");
-        System.out.println("| 1. Login as employee  |");
-        System.out.println("| 2. Login as customer  |");
-        System.out.println("-------------------------");
+            System.out.println("Login Menu");
+            System.out.println("-------------------------");
+            System.out.println("| 1. Login as employee  |");
+            System.out.println("| 2. Login as customer  |");
+            System.out.println("| 3. Exit               |");
+            System.out.println("-------------------------");
             System.out.println("Enter choice: ");
             choice = input.nextInt();
             switch (choice) {
@@ -113,7 +113,11 @@ public class logic {
                     EmployerLogIn();
                 case 2:
                     CustomerLogIn();
-
+                case 3:
+                    System.out.println("Loggin out, Have a Nice day Champ!");
+                    BookingFileToText();
+                    System.exit(0);
+                    break;
                 default:
                     System.out.println("Invalid option, choose between 1-3");
                     break;
@@ -144,10 +148,9 @@ public class logic {
                     break;
             }
 
-        }while (choice != 4) ;
+        } while (choice != 4);
 
     }
-
 
 
     private void editMenu() {
@@ -367,8 +370,6 @@ public class logic {
     }
 
 
-
-
     private void ViewBookingHistory() {
         ArrayList<Booking> yourBookings = new ArrayList<>();
         for (int i = 0; i < bookingList.size(); i++) {
@@ -565,7 +566,7 @@ public class logic {
 
     }
 
-    private void EditCustomerInfo () {
+    private void EditCustomerInfo() {
 
         int select;
 
@@ -577,6 +578,7 @@ public class logic {
         System.out.println("Which customer do you want to edit?");
         int customerNumber = Integer.parseInt(String.valueOf(input.nextInt()));
 
+
         do {
             System.out.println("What do you want to edit?: ");
 
@@ -587,6 +589,7 @@ public class logic {
             System.out.println("5. Exit");
 
             select = Integer.parseInt(String.valueOf(input.nextInt()));
+            input.nextLine();
             switch (select) {
                 case 1: {
                     System.out.println("This customers current name: " + "[" + customerList.get(customerNumber).getName() + "] | " + "What is the new Name?: ");
@@ -619,5 +622,31 @@ public class logic {
 
         } while (select != 5);
     }
+
+    public void BookingFileToText() {
+        String BookingFile = "Booking.txt";
+        for (Booking booking : bookingList) {
+            try {
+
+                FileWriter fileWriter = new FileWriter(BookingFile);
+                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                bufferedWriter.write("Booking id: " + booking.getBookingId());
+                Room roomNr;
+                for (int i = 0; i < bookingList.size(); i++) {
+                    roomNr = bookingList.get(i).getRoom();
+                    bufferedWriter.write(roomNr + ", ");
+                }
+                bufferedWriter.newLine();
+                bufferedWriter.write("----------Saved Succesfully----------");
+                bufferedWriter.newLine();
+                bufferedWriter.close();
+            } catch (Exception e) {
+                System.out.println("Error in file writing: " + BookingFile);
+                return;
+
+            }
+        }
+    }
 }
+
 
