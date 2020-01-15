@@ -131,7 +131,8 @@ public class logic {
             System.out.println("------Make your choice--------- ");
             System.out.println("| 1. View available rooms      |");
             System.out.println("| 2. Book room                 |");
-            System.out.println("| 3.Exit                       |");
+            System.out.println("| 3. Cancel Booking            |");
+            System.out.println("| 4. Exit                      |");
             System.out.println("--------------------------------");
             choice = input.nextInt();
             switch (choice) {
@@ -139,12 +140,16 @@ public class logic {
                     AvailableRooms();
                     break;
                 case 2:
-                    CheckIn();
+                    SaveBooking();
+                    break;
                 case 3:
+                    CancelBooking();
+                    break;
+                case 4:
                     printLogInMenu();
-
+                    break;
                 default:
-                    System.out.println("Invalid option, choose between 1-3");
+                    System.out.println("Invalid option, choose between 1-4");
                     break;
             }
 
@@ -188,12 +193,12 @@ public class logic {
 
 
     private void printMenu() {
-        System.out.println("<<Login succesfull>>");
+        System.out.println("<<Login succesfull>>   ");
         System.out.println("-----------------------");
         System.out.println("| 1. CustomerLogg     |");
         System.out.println("| 2: RoomLogg         |");
         System.out.println("| 3. BookingLogg      |");
-        System.out.println("| 4.Exit              |");
+        System.out.println("| 4. Exit             |");
         System.out.println("-----------------------");
     }
 
@@ -444,7 +449,6 @@ public class logic {
         System.out.println(bookedRoom);
 
         System.out.println("What day would you like to check in? YYYY-MM-DD");
-        
 
 
         int randomNum = ThreadLocalRandom.current().nextInt(1000000, 10000000);
@@ -455,6 +459,32 @@ public class logic {
         bookingList.add(booking);
 
     }
+
+    public void CancelBooking() {
+        boolean ask = true;
+        Booking bookedRoom = null;
+        do {
+            System.out.print("Do you want to cancel your booking? (y/n): ");
+            String answer = input.nextLine();
+            if ((answer.equalsIgnoreCase("y") || answer.equalsIgnoreCase("yes"))) {
+                System.out.println("Enter your BookingId ");
+                int bookingId = input.nextInt();
+                for (Booking booking : bookingList) {
+                    if (bookingId == booking.getBookingId()) {
+                        bookedRoom = booking;
+                        bookedRoom.getRoom().setBooked(false);
+                        ask = false;
+                        System.out.println("Booking canceld");
+                    }
+                    if ((answer.equalsIgnoreCase("n") || answer.equalsIgnoreCase("no"))) {
+                        System.out.println("Enjoy your visit ");
+                        ask = false;
+                    }
+                }
+            }
+        } while (ask);
+    }
+
 
     private void AddRoom() {
 
