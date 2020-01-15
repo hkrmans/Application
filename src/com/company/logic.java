@@ -444,6 +444,7 @@ public class logic {
         System.out.println(bookedRoom);
 
         System.out.println("What day would you like to check in? YYYY-MM-DD");
+        
 
 
         int randomNum = ThreadLocalRandom.current().nextInt(1000000, 10000000);

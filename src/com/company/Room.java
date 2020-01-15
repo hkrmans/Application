@@ -77,8 +77,7 @@ public class Room {
                 "Number of beds: " + numberOfBeds + "\n" +
                 "Has balcony: " + hasBalcony + "\n" +
                 "Price per night: " + pricePerNight + "kr" + "\n" +
-                "Is booked: " + isBooked + "\n" +
-                "_____________________________________________" + "\n";
+                "Is booked: " + isBooked + "\n";
 
     }
 

@@ -66,10 +66,12 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Booking{" +
-                "bookingId=" + bookingId +
-                ", totalPrice=" + totalPrice +
-                ", room=" + room +
-                '}';
+
+        return
+                "_______________________________" + "\n" +
+                "Booking information" + "\n" +
+                 room + "\n" + ">> BookingID: " +  bookingId + " <<" + "\n" +
+                        "_______________________________" + "\n";
+
     }
 }
