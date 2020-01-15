@@ -285,7 +285,9 @@ public class logic {
             System.out.println("| 3. View all Bookings              |");
             System.out.println("| 4. Search for a specific Booking  |");
             System.out.println("| 5. Save a Booking                 |");
-            System.out.println("| 6. Exit this menu                 |");
+            System.out.println("| 6. Cancel a Booking               |");
+            System.out.println("| 7. View BookingHistory            |");
+            System.out.println("| 8. Exit this menu                 |");
             System.out.println("-------------------------------------");
             choice = input.nextInt();
             switch (choice) {
@@ -305,13 +307,19 @@ public class logic {
                     SaveBooking();
                     break;
                 case 6:
+                    CancelBooking();
+                    break;
+                case 7:
+                    ViewBookingHistory();
+                    break;
+                case 8:
                     editMenu();
                     break;
                 default:
-                    System.out.println("Invalid option. Try again 1-6");
+                    System.out.println("Invalid option. Try again 1-8");
                     break;
             }
-        } while (choice != 7);
+        } while (choice != 8);
     }
 
 
@@ -376,12 +384,24 @@ public class logic {
 
 
     private void ViewBookingHistory() {
-        ArrayList<Booking> yourBookings = new ArrayList<>();
-        for (int i = 0; i < bookingList.size(); i++) {
+        try {
 
+            System.out.println("...................");
+            for (int i = 0; i < roomList.size(); i++) {
+                System.out.println("Room");
+                System.out.println(roomList.get(i));
+                System.out.println();
+                System.out.println("Booked by");
+                System.out.println(customerList.get(i));
+                System.out.println("---------------");
+            }
+            System.out.println(".................");
 
+        } catch (Exception e) {
+            System.out.println();
         }
     }
+
 
     private void SearchForBooking() {
         System.out.println("Search for a booking ID: ");
@@ -593,6 +613,7 @@ public class logic {
 
         for (Booking book : bookingList) {
             System.out.println(book);
+
         }
 
     }
