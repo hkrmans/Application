@@ -384,21 +384,13 @@ public class logic {
 
 
     private void ViewBookingHistory() {
-        try {
 
-            System.out.println("...................");
-            for (int i = 0; i < roomList.size(); i++) {
-                System.out.println("Room");
-                System.out.println(roomList.get(i));
-                System.out.println();
-                System.out.println("Booked by");
-                System.out.println(customerList.get(i));
-                System.out.println("---------------");
+        for (Customer customer : customerList) {
+            for (Booking booking : bookingList) {
+                if (customer.getSsn().equals(booking.getSsn())) {
+                    System.out.println("Bookings made by \n" + booking + customer);
+                }
             }
-            System.out.println(".................");
-
-        } catch (Exception e) {
-            System.out.println();
         }
     }
 
@@ -430,7 +422,8 @@ public class logic {
         }
 
         thebooking.getRoom().setChecked(true);
-        System.out.println("Checked in");
+
+        System.out.println("Checked in \n");
     }
 
     private void CheckOut() {
@@ -451,13 +444,13 @@ public class logic {
     }
 
     private void SaveBooking() {
+        String ssn;
         Room bookedRoom = null;
-
+        boolean pleaseWork = false;
         System.out.println("Which room do you want to book?");
         for (Room room : roomList) {
             System.out.println(room);
         }
-
         System.out.println("Enter a room number: ");
         int roomNumber = input.nextInt();
         for (Room room : roomList) {
@@ -466,19 +459,39 @@ public class logic {
                 break;
             }
         }
-        System.out.println(bookedRoom);
 
         System.out.println("What day would you like to check in? YYYY-MM-DD");
+        input.next();
+        String date = input.nextLine();
+
+        System.out.println("Please enter SSN for customer to book: YYYYMMDD-XXXX");
+        ssn = input.nextLine();
+        for (Customer customer : customerList) {
+            if (customer.getSsn().equals(ssn)) {
+                pleaseWork = true;
+                break;
+            }
+        }
+        if (pleaseWork) {
+            System.out.println("Booked succcesfully to Ssn " + ssn);
+
+        } else {
+            System.out.println("No customer with entered SSN could be found.");
+        }
+
+
+        System.out.println(bookedRoom);
 
 
         int randomNum = ThreadLocalRandom.current().nextInt(1000000, 10000000);
-        Booking booking = new Booking(randomNum, bookedRoom.getPricePerNight());
+        Booking booking = new Booking(randomNum, object.setSsn(ssn), bookedRoom.getPricePerNight());
         booking.setRoom(bookedRoom);
         bookedRoom.setBooked(true);
+        object.setBooking(booking);
         System.out.println(booking);
         bookingList.add(booking);
-
     }
+
 
     public void CancelBooking() {
         boolean ask = true;
@@ -550,7 +563,8 @@ public class logic {
         }
 
         System.out.println("Which room do you want to edit?: ");
-        int elementNumber = Integer.parseInt(input.nextLine());
+        int elementNumber = input.nextInt();
+        input.nextLine();
 
         do {
 

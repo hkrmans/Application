@@ -17,7 +17,7 @@ public class Customer {
         return booking;
     }
 
-    public void setBooking() {
+    public void setBooking(Booking booking) {
         this.booking = booking;
     }
 
@@ -72,7 +72,7 @@ public class Customer {
                         "Name: " + name + "\n" +
                         "Social security number: " + ssn + "\n" +
                         "Address: " + address + "\n" +
-                        "Telephonenumber: " + telephoneNumber + "\n" +
+                        "Telephonenumber: " + telephoneNumber + "\n"  +
                         "________________________________________";
 
     }

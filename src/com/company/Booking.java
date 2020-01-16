@@ -8,7 +8,17 @@ public class Booking {
     private Date checkInDate;
     private Date checkOutDate;
     private double totalPrice;
+    private String ssn;
     private Room room;
+
+
+    public String getSsn() {
+        return ssn;
+    }
+
+    public void setSsn(String ssn) {
+        this.ssn = ssn;
+    }
 
     public int getBookingId() {
         return bookingId;
@@ -50,7 +60,8 @@ public class Booking {
         return room;
     }
 
-    public Booking(int bookingId, double totalPrice) {
+    public Booking(int bookingId, String ssn, double totalPrice) {
+        this.ssn = ssn;
         this.bookingId = bookingId;
         this.totalPrice = totalPrice;
 
